@@ -30,4 +30,6 @@ function addTodo(event) {
     todoDiv.appendChild(trashBtn);
     //Append to list
     todoList.appendChild(todoDiv);
+    //Clear input value
+    todoInput.value = '';
 }
