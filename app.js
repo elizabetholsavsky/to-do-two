@@ -55,7 +55,7 @@ function deleteCheck(e) {
 
     if (item.classList.contains('complete-btn')) {
         const todo = item.parentElement;
-        todo.classList.toggle('completed');
+        todo.classList.toggle('complete');
     }
 }
 
@@ -68,15 +68,15 @@ function filterTodo(e) {
                 case 'all':
                     mStyle.display = 'flex';
                     break;
-                case 'completed':
-                    if (todo.classList.contains('completed')) {
+                case 'complete':
+                    if (todo.classList.contains('complete')) {
                         mStyle.display = 'flex';
                     } else {
                         mStyle.display = 'none';
                     }
                     break;
-                case 'uncompleted':
-                    if (todo.classList.contains('completed')) {
+                case 'incomplete':
+                    if (todo.classList.contains('complete')) {
                         mStyle.display = 'none';
                     } else {
                         mStyle.display = 'flex';

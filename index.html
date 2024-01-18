@@ -10,33 +10,37 @@
 <link rel="stylesheet" href="./style.css">
     <title>TODO LIST</title>
 </head>
-<body>
 
+<body>
+    <!-- title -->
     <header>
-        <h1>Todo List</h1>
+        <h1>TO DO</h1>
     </header>
 
-    <form>
+    <div class="content">
+            <!-- input task -->
+        <form class="form-container">
+            <input type="text" class="todo-input">
+    
+            <button class="todo-button" type="submit">
+                <i class="fas fa-plus-square"></i>
+            </button>
 
-        <input type="text" class="todo-input">
+            <!-- filter dropdown -->
+            <div class="select">
+                <select name="todos" class="filter-todo">
+                    <option value="all">All</option>
+                    <option value="complete">Complete</option>
+                    <option value="incomplete">Incomplete</option>
+                </select>
+            </div>  
+        </form>
 
-        <button class="todo-button" type="submit">
-            <i class="fas fa-plus-square"></i>
-        </button>
-
-        <div class="select">
-            <select name="todos" class="filter-todo">
-                <option value="all">All</option>
-                <option value="completed">Completed</option>
-                <option value="uncompleted">Uncompleted</option>
-            </select>
+        <!-- list of tasks -->
+        <div class="todo-container">
+            <ul class="todo-list">
+            </ul>
         </div>
-        
-    </form>
-
-    <div class="todo-container">
-        <ul class="todo-list">
-        </ul>
     </div>
 
     <script src="./app.js"></script>
