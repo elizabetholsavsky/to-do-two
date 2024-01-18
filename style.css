@@ -4,9 +4,18 @@
     box-sizing: border-box;
 }
 
+:root{
+    --gradient1: #f4c837;
+    --gradient2: #fda085;
+    --action: #ff6f47;
+    --highlight: rgb(240, 239, 239);
+    --text: rgb(27, 27, 27);
+    --completed: rgb(106, 220, 106);
+}
+
 body {
-    background-image: linear-gradient(120deg, #f4c837, #fda085);
-    color: white;
+    background-image: linear-gradient(120deg, var(--gradient1), var(--gradient2));
+    color: var(--highlight);
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
 }
@@ -28,19 +37,19 @@ form button {
     padding: 0.5rem;
     font-size: 2rem;
     border: none;
-    background: white;
+    background: var(--highlight);
 }
 
 form button {
-    color: #fda085;
-    background: white;
+    color: var(--gradient2);
+    background: var(--highlight);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 form button:hover{
-    background: #fda085;
-    color: white;
+    background: var(--gradient2);
+    color: var(--highlight);
 }
 
 .todo-container {
@@ -56,8 +65,8 @@ form button:hover{
 
 .todo {
     margin: 0.5rem;
-    background: white;
-    color: black;
+    background: var(--highlight);
+    color: var(--text);
     font-size: 1.5rem;
     display: flex;
     justify-content: space-between;
@@ -70,8 +79,8 @@ form button:hover{
 }
 
 .trash-btn, .complete-btn {
-    background: #ff6f47;
-    color: white;
+    background:  var(--action);
+    color: var(--highlight);
     border: none;
     padding: 1rem;
     cursor: pointer;
@@ -79,7 +88,7 @@ form button:hover{
 }
 
 .complete-btn {
-    background: rgb(106, 220, 106);
+    background: var(--completed);
 }
 
 .todo-item{
@@ -119,7 +128,7 @@ select {
 }
 
 select {
-    color: #ff6f47;
+    color:  var(--action);
     width: 10rem;
     cursor: pointer;
     padding: 1rem;
@@ -128,7 +137,7 @@ select {
 .select::after {
     content: "\25BC";
     position: absolute;
-    background: #ff6f47;
+    background: var(--action);
     top: 0;
     right: 0;
     padding: 1rem;
@@ -136,6 +145,6 @@ select {
 }
 
 .select:hover::after {
-    background: white;
-    color: #ff6f47;
+    background: var(--highlight);
+    color:  var(--action);
 }
