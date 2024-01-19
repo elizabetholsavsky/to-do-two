@@ -18,7 +18,8 @@
     --action: #563b96;
     --highlight: rgb(240, 239, 239);
     --text: rgb(27, 27, 27);
-    --completed: rgb(106, 220, 106);
+    --completed: rgb(144, 218, 144);
+    --delete: rgb(224, 104, 104);
 }
 
 body {
@@ -106,6 +107,15 @@ form button:hover{
     background: var(--completed);
 }
 
+.trash-btn {
+    background-color: var(--delete);
+}
+
+.trash-btn:hover,
+.complete-btn:hover {
+    opacity: 80%;
+}
+
 .todo-item{
     padding: 0rem 0.5rem;
 }
@@ -154,8 +164,8 @@ select {
 .select::after {
     content: "\25BC";
     position: absolute;
-    background: var(--action);
-    color: var(--highlight);
+    background: var(--highlight);
+    color: var(--action);
     top: 0;
     right: 0;
     padding: 1rem;
@@ -164,6 +174,6 @@ select {
 }
 
 .select:hover::after {
-    background: var(--highlight);
-    color:  var(--action);
+    background: var(--action);
+    color:  var(--highlight);
 }
