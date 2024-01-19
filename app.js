@@ -19,29 +19,10 @@ function addTodo(event) {
     if (todoInput.value.trim() === '') {
         return; // Do nothing if the input is blank
     }
-    
-    // Todo Div
-    const todoDiv = document.createElement('div');
-    todoDiv.classList.add('todo');
-    // Create LI
-    const newTodo = document.createElement('li');
-    newTodo.innerText = todoInput.value;
-    newTodo.classList.add('todo-item');
-    todoDiv.appendChild(newTodo);
-    // add todo to local storage
+
+    // saveLocalTodos now handles the duplicate check and UI update
     saveLocalTodos(todoInput.value);
-    // Checkmark BTN
-    const completedBtn = document.createElement('button');
-    completedBtn.innerHTML = '<i class="fas fa-check"></i>';
-    completedBtn.classList.add('complete-btn');
-    todoDiv.appendChild(completedBtn);
-    // Trash BTN
-    const trashBtn = document.createElement('button');
-    trashBtn.innerHTML = '<i class="fas fa-trash"></i>';
-    trashBtn.classList.add('trash-btn');
-    todoDiv.appendChild(trashBtn);
-    // Append to list
-    todoList.appendChild(todoDiv);
+
     // Clear input value
     todoInput.value = '';
 }
@@ -93,7 +74,7 @@ function filterTodo(e) {
     });
 }
 
-// Save to local storage
+// Save to local storage with duplicate check
 function saveLocalTodos(todo) {
     // Check
     let todos;
@@ -103,8 +84,36 @@ function saveLocalTodos(todo) {
         todos = JSON.parse(localStorage.getItem('todos'));
     }
 
+    // Check for duplicates
+    if (todos.includes(todo)) {
+        alert('This todo already exists.');
+        return;
+    }
+
+    // Add todo to local storage
     todos.push(todo);
     localStorage.setItem("todos", JSON.stringify(todos));
+
+    // Update UI only if the todo is not a duplicate
+    const todoDiv = document.createElement('div');
+    todoDiv.classList.add('todo');
+    // Create LI
+    const newTodo = document.createElement('li');
+    newTodo.innerText = todo;
+    newTodo.classList.add('todo-item');
+    todoDiv.appendChild(newTodo);
+    // Checkmark BTN
+    const completedBtn = document.createElement('button');
+    completedBtn.innerHTML = '<i class="fas fa-check"></i>';
+    completedBtn.classList.add('complete-btn');
+    todoDiv.appendChild(completedBtn);
+    // Trash BTN
+    const trashBtn = document.createElement('button');
+    trashBtn.innerHTML = '<i class="fas fa-trash"></i>';
+    trashBtn.classList.add('trash-btn');
+    todoDiv.appendChild(trashBtn);
+    // Append to list
+    todoList.appendChild(todoDiv);
 }
 
 function getTodos(){
