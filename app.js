@@ -14,6 +14,12 @@ filterOption.addEventListener('change', filterTodo);
 
 function addTodo(event) {
     event.preventDefault();
+
+    // Check if todoInput is blank
+    if (todoInput.value.trim() === '') {
+        return; // Do nothing if the input is blank
+    }
+    
     // Todo Div
     const todoDiv = document.createElement('div');
     todoDiv.classList.add('todo');
