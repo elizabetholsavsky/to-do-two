@@ -29,10 +29,13 @@ body {
     font-size: 1.25rem;
 }
 
+/* gradient animation */
 @keyframes bg-animation {
     0% {background-position: left}
     100% {background-position: right;}
 }
+
+/* header */
 
 header {
     font-size: 1.5rem;
@@ -40,15 +43,18 @@ header {
 }
 
 header, 
-form {
+form,
+.input-container {
     min-height: 20vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-form input,
-form button {
+/* FORM */
+
+.todo-input,
+.todo-button {
     padding: 0.5rem;
     font-size: 1.5rem;
     border: none;
@@ -66,6 +72,8 @@ form button:hover{
     background: var(--action);
     color: var(--highlight);
 }
+
+/* TASK LIST */
 
 .todo-container {
     display: flex;
@@ -134,6 +142,8 @@ form button:hover{
     opacity: 0;
 }
 
+/* DROP DOWN SELECT */
+
 select {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -175,4 +185,21 @@ select {
 .select:hover::after {
     background: var(--action);
     color:  var(--highlight);
+}
+
+@media (max-width: 550px) {
+    form,
+    select {
+        display: block; 
+        margin: auto;
+        
+    }
+    select,
+    .input-container {
+        width: 95%;
+        margin: 1rem;
+    }
+    .filter-todo {
+        margin: 0;
+    }
 }
